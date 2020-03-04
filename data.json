@@ -1,0 +1,453 @@
+{
+  "response_code": 0,
+  "results": [
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which game did &quot;Sonic The Hedgehog&quot; make his first appearance in?",
+      "correct_answer": "Rad Mobile",
+      "incorrect_answers": ["Sonic The Hedgehog", "Super Mario 64", "Mega Man"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "League of Legends, DOTA 2, Smite and Heroes of the Storm are all part of which game genre?",
+      "correct_answer": "Multiplayer Online Battle Arena (MOBA)",
+      "incorrect_answers": [
+        "Real Time Strategy (RTS)",
+        "First Person Shooter (FPS)",
+        "Role Playing Game (RPG)"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which company did Gabe Newell work at before founding Valve Corporation?",
+      "correct_answer": "Microsoft",
+      "incorrect_answers": ["Apple", "Google", "Yahoo"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which of these is a type of monster found in Minecraft?",
+      "correct_answer": "Skeleton",
+      "incorrect_answers": ["Werewolf", "Vampire", "Minotaur"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which of these video game engines was made by the company Epic Games?",
+      "correct_answer": "Unreal",
+      "incorrect_answers": ["Unity", "Game Maker: Studio", "Cry Engine"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which student in Yandere Simulator is known for asking irritating and stupid questions?",
+      "correct_answer": "Midori Gurin",
+      "incorrect_answers": ["Kokona Hruka", "Oka Ruto", "Pipi Osu"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the main character in &quot;The Stanley Parable&quot;?",
+      "correct_answer": "Stanley",
+      "incorrect_answers": ["The Adventure Line", "The Narrator", "The Boss"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Pok&eacute;mon Go is a location-based augmented reality game developed and published by which company?",
+      "correct_answer": "Niantic",
+      "incorrect_answers": ["Rovio", "Zynga", "Supercell"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In the fighting game &quot;Skullgirls,&quot; which character utilizes a folding chair called the &quot;Hurting&quot; as a weapon?",
+      "correct_answer": "Beowulf",
+      "incorrect_answers": ["Big Band", "Squigly", "Cerebella"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "&quot;Tomb Raider&quot; icon Lara Croft was originally called...",
+      "correct_answer": "Laura Cruz",
+      "incorrect_answers": ["Laura Craft", "Laura Croft", "Lara Craft"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In the 2002 video game &quot;Kingdom Hearts&quot;, how many Keyblades are usable?",
+      "correct_answer": "18",
+      "incorrect_answers": ["13", "16", "15"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which of these is NOT the name of a rival gang in the video game Saint&#039;s Row 2?",
+      "correct_answer": "The Zin Empire",
+      "incorrect_answers": [
+        "The Brotherhood",
+        "The Ronin",
+        "The Sons of Samedi"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In most FPS video games such as Counter-Strike, shooting which part of the body does the highest damage?",
+      "correct_answer": "Head",
+      "incorrect_answers": ["Arm", "Leg", "Chest"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which of these Starbound races has a Wild West culture?",
+      "correct_answer": "Novakid",
+      "incorrect_answers": ["Avian", "Human", "Hylotl"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In Portal 2, how did CEO of Aperture Science, Cave Johnson, presumably die?",
+      "correct_answer": "Moon Rock Poisoning",
+      "incorrect_answers": [
+        "Accidentally sending a portal to the Moon",
+        "Slipped in the shower",
+        "Asbestos Poisoning"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the founder of Team Fortress 2&#039;s fictional company &quot;Mann Co&quot;?",
+      "correct_answer": "Zepheniah Mann",
+      "incorrect_answers": ["Cave Johnson", "Wallace Breem", "Saxton Hale"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the creator of the Super Smash Bros. Series?",
+      "correct_answer": "Masahiro Sakurai",
+      "incorrect_answers": [
+        "Reggie Fils-Aim&eacute;",
+        "Bill Trinen",
+        "Hideo Kojima"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "When was Minecraft first released to the public?",
+      "correct_answer": "May 17th, 2009",
+      "incorrect_answers": [
+        "September 17th, 2009",
+        "November 18th, 2011",
+        "October 7th, 2011"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In the Half-Life series, Gordon Freeman&#039;s signature weapon is a:",
+      "correct_answer": "Crowbar",
+      "incorrect_answers": ["Sledgehammer", "Fiber Wire", "Katana"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the first weapon you acquire in Half-Life?",
+      "correct_answer": "A crowbar",
+      "incorrect_answers": ["A pistol", "The H.E.V suit", "Your fists"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the main protagonist of Dead Space?",
+      "correct_answer": "Isaac Clarke",
+      "incorrect_answers": [
+        "Commander Shepard",
+        "Gordon Freeman",
+        "Master Chief"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What year was the game Dishonored released?",
+      "correct_answer": "2012",
+      "incorrect_answers": ["2011", "2008", "2013"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In vanilla Minecraft, which of the following cannot be made into a block?",
+      "correct_answer": "Charcoal",
+      "incorrect_answers": ["Coal", "Wheat", "String"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the leader of Team Valor in Pok&eacute;mon Go?",
+      "correct_answer": "Candela",
+      "incorrect_answers": ["Willow", "Blanche", "Spark"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Sonic the Hedgehog game was originally supposed to be packaged with Sonic 3, but was cut in half due to time constraints?",
+      "correct_answer": "Sonic &amp; Knuckles",
+      "incorrect_answers": ["Sonic 2", "Sonic CD", "Sonic 3D Blast"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Pokemon generation did the fan-named &quot;Masuda Method&quot; first appear in? ",
+      "correct_answer": "Diamond/Pearl",
+      "incorrect_answers": ["Ruby/Sapphire", "Black/White", "X/Y"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In what year was Hearthstone released?",
+      "correct_answer": "2014",
+      "incorrect_answers": ["2011", "2013", "2012"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who are the original creators of Rachet &amp; Clank?",
+      "correct_answer": "Insomniac Games",
+      "incorrect_answers": ["PixelTail Games", "Rare", "Bethesda"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In what year was &quot;Antichamber&quot; released?",
+      "correct_answer": "2013",
+      "incorrect_answers": ["2012", "2014", "2011"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In Super Mario Bros., who informs Mario that the princess is in another castle?",
+      "correct_answer": "Toad",
+      "incorrect_answers": ["Luigi", "Yoshi", "Bowser"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which Elite Four member from the first generation of Pok&eacute;mon became the champion in the next generation?",
+      "correct_answer": "Lance",
+      "incorrect_answers": ["Agatha", "Bruno", "Lorelei"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who turns out to be the true victor in the Battle of Armageddon in Mortal Kombat?",
+      "correct_answer": "Shao Kahn",
+      "incorrect_answers": ["Liu Kang", "Shang Tsung", "Raiden"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What is the name of the 4-armed Chaos Witch from the 2016 video game &quot;Battleborn&quot;?",
+      "correct_answer": "Orendi",
+      "incorrect_answers": ["Orendoo", "Oranda", "Randy"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What minimum level in the Defence skill is needed to equip Dragon Armour in the MMO RuneScape?",
+      "correct_answer": "60",
+      "incorrect_answers": ["65", "55", "70"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In Minecraft, which two items must be combined to craft a torch?",
+      "correct_answer": "Stick and Coal",
+      "incorrect_answers": ["Stick and Fire", "Wood and Coal", "Wood and Fire"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Valve Corporation is an American video game developer located in which city?",
+      "correct_answer": "Bellevue, Washington",
+      "incorrect_answers": [
+        "Austin, Texas",
+        "Seattle, Washington",
+        "San Francisco, California"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "&quot;Minecraft&quot; was released from beta in 2011 during a convention held in which city?",
+      "correct_answer": "Las Vegas",
+      "incorrect_answers": ["Paris", "Bellevue", "London"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What household item make the characters of &quot;Steins; Gate&quot; travel through time?",
+      "correct_answer": "Microwave",
+      "incorrect_answers": ["Computer", "Refrigerator", "Televison"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What game was used to advertise Steam?",
+      "correct_answer": "Counter-Strike 1.6",
+      "incorrect_answers": ["Half-Life", "Half-Life 2", "Team Fortress"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Who is the creator of Touhou project?",
+      "correct_answer": "Zun",
+      "incorrect_answers": ["Jun", "Twilight Frontier", "Tasofro"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In &quot;Call Of Duty: Zombies&quot;, what is the name of the machine that upgrades weapons?",
+      "correct_answer": "Pack-A-Punch",
+      "incorrect_answers": ["Wunderfizz", "Gersch Device", "Mule Kick"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What were the first two blocks in &quot;Minecraft&quot;?",
+      "correct_answer": "Grass and Cobblestone",
+      "incorrect_answers": [
+        "Grass and Stone",
+        "Crafting Table and Cobblestone",
+        "Cobblestone and Stone"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which character in the &quot;Animal Crossing&quot; series uses the phrase &quot;zip zoom&quot; when talking to the player?",
+      "correct_answer": "Scoot",
+      "incorrect_answers": ["Drake", "Bill", "Mallary"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In the Halo series, which era of SPARTAN is Master Chief? ",
+      "correct_answer": "SPARTAN-II",
+      "incorrect_answers": ["SPARTAN-I", "SPARTAN-III", "SPARTAN-IV"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "What was the first game in the &quot;Battlefield&quot; series?",
+      "correct_answer": "Battlefield 1942",
+      "incorrect_answers": [
+        "Battlefield Vietnam",
+        "Battlefield 2",
+        "Battlefield 1"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Before it&#039;s redesign of the company logo in the year 2000, which 3D shape is NOT represented in the Electronic Arts logo?",
+      "correct_answer": "Cylinder",
+      "incorrect_answers": ["Pyramid", "Cube", "Sphere"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which of the following is NOT one of the main characters in Grand Theft Auto V&rsquo;s story mode?",
+      "correct_answer": "Tommy Vercetti",
+      "incorrect_answers": [
+        "Michael de Santa",
+        "Franklin Clinton",
+        "Trevor Phillips"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "Which of the following games has the largest map size?",
+      "correct_answer": "Just Cause 2",
+      "incorrect_answers": [
+        "Grand Theft Auto 5",
+        "The Elder Scrolls 4:  Oblivion",
+        "The Witcher 3:  Wild Hunt"
+      ]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "In the &quot;Metal Gear Solid&quot; series, what&#039;s the name of Solid Snake&#039;s brother?",
+      "correct_answer": "Liquid Snake",
+      "incorrect_answers": ["Kulus Snake", "Billy Snake", "Gilur Snake"]
+    },
+    {
+      "category": "Entertainment: Video Games",
+      "type": "multiple",
+      "difficulty": "easy",
+      "question": "When was &quot;Luigi&#039;s Mansion 3&quot; released?",
+      "correct_answer": "October 31st, 2019",
+      "incorrect_answers": [
+        "January 13th, 2019",
+        "September 6th, 2018",
+        "October 1st, 2019"
+      ]
+    }
+  ]
+}
