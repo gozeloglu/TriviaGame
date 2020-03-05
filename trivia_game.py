@@ -70,6 +70,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         if session_id not in session_id_list:   # Session id is controlled
             self.wfile.write(str.encode("Session " + str(session_id) + " is not found!\n"))
             return
+        if amount_list[session_id-1] == question_number[session_id-1]:
+            self.wfile.write(str.encode("You completed all questions!\n"))
+            return
         self.send_response(200)
         self.end_headers()
         self.wfile.write(str.encode("Question Number: " + str(question_number[session_id-1]+1) + "\n"))
