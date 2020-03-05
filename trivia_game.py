@@ -3,7 +3,7 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 from random import randint
 
-prev_games = []
+session_id_list = []
 
 
 class RequestHandler(BaseHTTPRequestHandler):
@@ -23,8 +23,8 @@ class RequestHandler(BaseHTTPRequestHandler):
     def new_game(self):
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(str.encode("New Trivia Game started\nSession ID = "+ str(prev_games[-1]) + "\n"))
-        print("New Game Session ID: ", prev_games[-1])  # debug print
+        self.wfile.write(str.encode("New Trivia Game started\nSession ID = " + str(session_id_list[-1]) + "\n"))
+        print("New Game Session ID: ", session_id_list[-1])  # debug print
 
     def do_GET(self):
         # Parse incoming request url
@@ -43,11 +43,12 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(b'Not Found!\n')
 
     def create_session_id(self):
-        new_id = randint(1, 100)
-        if new_id in prev_games:
-            self.create_session_id()
+        if len(session_id_list) == 0:
+            new_id = 1
+            session_id_list.append(new_id)
         else:
-            prev_games.append(new_id)
+            new_id = session_id_list[-1]
+            session_id_list.append(new_id+1)
 
 
 if __name__ == "__main__":
