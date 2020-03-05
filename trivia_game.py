@@ -32,14 +32,14 @@ def create_session_id(amount=10):
     if len(session_id_list) == 0:
         new_id = 1
         session_id_list.append(new_id)
-        question_number.append(1)
+        question_number.append(0)
         amount_list.append(amount)
     # If session_id_list is not empty,
     # last ID is incremented by 1 and added list
     else:
         new_id = session_id_list[-1]
         session_id_list.append(new_id+1)
-        question_number.append(1)
+        question_number.append(0)
         amount_list.append(amount)
 
 
@@ -72,7 +72,7 @@ class RequestHandler(BaseHTTPRequestHandler):
             return
         self.send_response(200)
         self.end_headers()
-        self.wfile.write(str.encode("Question Number: " + str(question_number[session_id-1]) + "\n"))
+        self.wfile.write(str.encode("Question Number: " + str(question_number[session_id-1]+1) + "\n"))
         self.wfile.write(str.encode("Category: " + questions[question_number[session_id-1]]["category"] + "\n"))
         self.wfile.write(str.encode("Question: " + questions[question_number[session_id-1]]["question"] + "\n\n"))
         self.write_answers(question_number[session_id-1])
@@ -109,7 +109,6 @@ class RequestHandler(BaseHTTPRequestHandler):
 if __name__ == "__main__":
     # JSON data is read
     read_json()
-    # print(questions[1]["category"])
     port = 8080
     print(f'Listening on localhost:{port}')
     server = HTTPServer(('', port), RequestHandler)
