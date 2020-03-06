@@ -2,11 +2,13 @@
 from http.server import HTTPServer, BaseHTTPRequestHandler
 from urllib.parse import urlparse, parse_qs
 import json
+import requests
 
 session_id_list = []
 amount_list = []
 question_number = []
 questions = dict()
+total_question_num = 0
 
 
 def read_json():
@@ -70,11 +72,16 @@ class RequestHandler(BaseHTTPRequestHandler):
         if session_id not in session_id_list:   # Session id is controlled
             self.wfile.write(str.encode("Session " + str(session_id) + " is not found!\n"))
             return
-        if amount_list[session_id-1] == question_number[session_id-1]:
-            self.wfile.write(str.encode("You completed all questions!\n"))
+        if question_number[session_id-1] == total_question_num:     # Total answered question number is checked
+            self.wfile.write(str.encode("You answered the all questions!\nNo new question!\n"))
+            return
+        if amount_list[session_id-1] == question_number[session_id-1]:      # If total question is asked in related
+            self.wfile.write(str.encode("You completed all questions!\n"))  # session, warning message is printed
             return
         self.send_response(200)
         self.end_headers()
+
+        # Print on the command line
         self.wfile.write(str.encode("Question Number: " + str(question_number[session_id-1]+1) + "\n"))
         self.wfile.write(str.encode("Category: " + questions[question_number[session_id-1]]["category"] + "\n"))
         self.wfile.write(str.encode("Question: " + questions[question_number[session_id-1]]["question"] + "\n\n"))
@@ -83,6 +90,12 @@ class RequestHandler(BaseHTTPRequestHandler):
         question_number[session_id-1] += 1
 
     def write_answers(self, number):
+        """
+        :param number: It represents question number
+        :return: Nothing
+        The function prints out the appropriate answer
+        on the console
+        """
         answers = [questions[number]["correct_answer"]]
         self.wfile.write(str.encode("- " + questions[number]["correct_answer"] + "\n"))
         for ans in questions[number]["incorrect_answers"]:
@@ -90,6 +103,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         # Parse incoming request url
+        print("GET")
         url = urlparse(self.path)
         print("\n", url, "\n")  # debug print
         if url.path == "/hello":
@@ -106,12 +120,32 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(b'Not Found!\n')
 
     def do_POST(self):
-        content_length = int(self.headers[''])
+        print("POST")
+
+        # TODO Parse curl command and get answer and id
+        # TODO Add 15 seconds to answer. Hint: request.post(timeout=10)
+        #response = requests.post(self.path, data="DATATATTATATA")
+        #print(response.elapsed.total_seconds())
+        #url = urlparse(self.path)
+
+        # response = requests.post('http://localhost:8080/answer', data=data, timeout=3)
+        # response.elapsed.total_seconds()
+        # print("POST", response)
+        ss = str(self.path)
+        url = urlparse(self.path)
+        print(parse_qs(url.query)["id"][0], "---")
+        """if url.path == "/answer":
+            self.wfile.write(str.encode("ANSWER\n"))
+            print(url)
+            self.wfile.write(str.encode(str(url) + "\n"))
+            self.wfile.write(str.encode(self.path + "\n"))"""
 
 
 if __name__ == "__main__":
     # JSON data is read
     read_json()
+    total_question_num = len(questions)
+    print(total_question_num)
     port = 8080
     print(f'Listening on localhost:{port}')
     server = HTTPServer(('', port), RequestHandler)
