@@ -70,7 +70,7 @@ class RequestHandler(BaseHTTPRequestHandler):
     def next(self, query):
         session_id = int(query["id"][0])        # Session id retrieved from query
         if session_id not in session_id_list:   # Session id is controlled
-            self.wfile.write(str.encode("Session " + str(session_id) + " is not found!\n"))
+            self.wfile.write(str.encode("SessionID is unknown!\n"))
             return
         if question_number[session_id-1] == total_question_num:     # Total answered question number is checked
             self.wfile.write(str.encode("You answered the all questions!\nNo new question!\n"))
