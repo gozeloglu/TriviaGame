@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="22c45bb4-9727-47d6-9b5a-51b48cb5001c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/trivia_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/trivia_game.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +26,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunManager">
     <configuration name="trivia_game" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
@@ -79,7 +81,9 @@
       <updated>1583348955698</updated>
       <workItem from="1583348957171" duration="2913000" />
       <workItem from="1583403132584" duration="24690000" />
-      <workItem from="1583497768029" duration="2126000" />
+      <workItem from="1583497768029" duration="3428000" />
+      <workItem from="1583512017542" duration="3450000" />
+      <workItem from="1583766486041" duration="5905000" />
     </task>
     <servers />
   </component>
@@ -103,6 +107,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583447041920" />
+    <state x="184" y="7" key="SettingsEditor" timestamp="1583787023198">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583787023198" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TriviaGame$trivia_game.coverage" NAME="trivia_game Coverage Results" MODIFIED="1583443959724" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

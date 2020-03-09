@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
+from urllib.parse import urlparse, parse_qs, urlsplit
 import json
 import requests
 
@@ -88,6 +88,10 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.write_answers(question_number[session_id-1])
         self.wfile.write(str.encode("\nYou have 15 seconds to answer!\n"))
         question_number[session_id-1] += 1
+        # TODO Call answer function
+
+        r = requests.get("https://github.com/", timeout=15)
+        r.elapsed.total_seconds()
 
     def write_answers(self, number):
         """
@@ -120,25 +124,26 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(b'Not Found!\n')
 
     def do_POST(self):
+        """
+        There might be two different curl command. So, both of them should be handled
+        to parse and retrieve answer. I used try-except structure here. In try part,
+        I handled curl -d "id=xx&answer=xxxx" -X POST http://localhost:8080/answer
+        In except part, I handled curl -X POST http://localhost:8080/answer\?id=xx\&answer=xxxx
+        """
+
         print("POST")
 
         # TODO Parse curl command and get answer and id
         # TODO Add 15 seconds to answer. Hint: request.post(timeout=10)
-        #response = requests.post(self.path, data="DATATATTATATA")
-        #print(response.elapsed.total_seconds())
-        #url = urlparse(self.path)
 
-        # response = requests.post('http://localhost:8080/answer', data=data, timeout=3)
-        # response.elapsed.total_seconds()
-        # print("POST", response)
-        ss = str(self.path)
-        url = urlparse(self.path)
-        print(parse_qs(url.query)["id"][0], "---")
-        """if url.path == "/answer":
-            self.wfile.write(str.encode("ANSWER\n"))
-            print(url)
-            self.wfile.write(str.encode(str(url) + "\n"))
-            self.wfile.write(str.encode(self.path + "\n"))"""
+        try:
+            content_length = int(self.headers['Content-Length'])  # Gets the size of data
+            post_data = self.rfile.read(content_length)  # Gets the data itself
+            post_data = post_data.decode("ascii")   # decode the data from binary to string
+            print(post_data)
+        except TypeError:
+            url = urlparse(self.path)
+            print(parse_qs(url.query))
 
 
 if __name__ == "__main__":
@@ -150,4 +155,4 @@ if __name__ == "__main__":
     print(f'Listening on localhost:{port}')
     server = HTTPServer(('', port), RequestHandler)
     server.serve_forever()
-    server.server_close()
+    # server.server_close()
