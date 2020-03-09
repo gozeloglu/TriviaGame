@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs, urlsplit
+from urllib.parse import urlparse, parse_qs
 import json
 import requests
+import time
 
 session_id_list = []
 amount_list = []
@@ -89,9 +90,15 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(str.encode("\nYou have 15 seconds to answer!\n"))
         question_number[session_id-1] += 1
         # TODO Call answer function
-
-        r = requests.get("https://github.com/", timeout=15)
-        r.elapsed.total_seconds()
+        print("START !!!!!!!")
+        # start = self.date_time_string()
+        start_ = self.log_date_time_string()
+        finish_second = self.calculate_last_second(start_.split()[1])
+        print(start_)
+        print(finish_second)
+        #print(start)
+        # start = start.split()[4].split(":")[2]
+        #print(start)
 
     def write_answers(self, number):
         """
@@ -104,6 +111,16 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(str.encode("- " + questions[number]["correct_answer"] + "\n"))
         for ans in questions[number]["incorrect_answers"]:
             self.wfile.write(str.encode("- " + ans + "\n"))
+
+    def calculate_last_second(self, start_time):
+        print(start_time)
+        start_time = start_time.split(":")
+        start_time =list(map(int, start_time))
+        last_second = start_time[-1] + 15
+        if last_second > 59:
+            last_second = last_second - 60
+
+        return last_second
 
     def do_GET(self):
         # Parse incoming request url
@@ -136,11 +153,22 @@ class RequestHandler(BaseHTTPRequestHandler):
         # TODO Parse curl command and get answer and id
         # TODO Add 15 seconds to answer. Hint: request.post(timeout=10)
 
+        finish = self.date_time_string()
+        finish = finish.split()[4].split(":")[2]
+        #print(finish)
+        finish_ = self.log_date_time_string()
+        print(finish_)
+        print(type(finish_))
+
         try:
             content_length = int(self.headers['Content-Length'])  # Gets the size of data
             post_data = self.rfile.read(content_length)  # Gets the data itself
             post_data = post_data.decode("ascii")   # decode the data from binary to string
-            print(post_data)
+            print(post_data.split("&"))
+            post_data = post_data.split("&")        # string is split wrt '&'
+            id = post_data[0].split("=")[1]         # id is split wrt '='
+            answer = post_data[1].split("=")[1]     # id is split wrt '='
+            print(id, answer)
         except TypeError:
             url = urlparse(self.path)
             print(parse_qs(url.query))
