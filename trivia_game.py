@@ -8,6 +8,7 @@ import time
 session_id_list = []
 amount_list = []
 question_number = []
+correct_wrong_ans_list = []
 questions = dict()
 total_question_num = 0
 
@@ -90,15 +91,8 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.wfile.write(str.encode("\nYou have 15 seconds to answer!\n"))
         question_number[session_id-1] += 1
         # TODO Call answer function
-        print("START !!!!!!!")
-        # start = self.date_time_string()
-        start_ = self.log_date_time_string()
-        finish_second = self.calculate_last_second(start_.split()[1])
-        print(start_)
-        print(finish_second)
-        #print(start)
-        # start = start.split()[4].split(":")[2]
-        #print(start)
+        start_ = self.log_date_time_string()    # current time is retrieved
+        finish_second = self.calculate_last_second(start_.split()[1])   # finish second is calculated
 
     def write_answers(self, number):
         """
@@ -113,20 +107,42 @@ class RequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(str.encode("- " + ans + "\n"))
 
     def calculate_last_second(self, start_time):
-        print(start_time)
-        start_time = start_time.split(":")
-        start_time =list(map(int, start_time))
-        last_second = start_time[-1] + 15
-        if last_second > 59:
+        """
+        It calculates the finish time for asked question
+        :param start_time: start time for asked question. Its format is HH:MM:SS
+        :return: Finish second of the question
+        """
+        print(start_time)   # debug print
+        start_time = start_time.split(":")  # time is split. Format --> ["HH", "MM", "SS"]
+        start_time = list(map(int, start_time))     # strings are converted to int
+        last_second = start_time[-1] + 15   # second is retrieved and added 15 seconds
+        if last_second > 59:    # control for over 60 seconds
             last_second = last_second - 60
 
         return last_second
 
+    def correct_message(self, ses_id, q_id):
+        self.wfile.write(str.encode("CORRECT ANSWER!!\n\n"))
+        print(correct_wrong_ans_list)
+        print(question_number, ses_id, q_id)
+        self.wfile.write(str.encode(str(correct_wrong_ans_list[ses_id - 1][0])))
+        self.wfile.write(str.encode(" correct of " + str(question_number[ses_id - 1]) + " questions\n\n"))
+        self.wfile.write(str.encode("There are " + str(amount_list[ses_id - 1] - question_number[ses_id - 1])))
+        self.wfile.write(str.encode(" more questions\n"))
+
+    def wrong_message(self, ses_id):
+        self.wfile.write(str.encode("WRONG ANSWER!!\n\n"))
+        """self.wfile.write(str.encode(str(correct_wrong_ans_list[question_number[ses_id-1]-1][1])))
+        self.wfile.write(str.encode(" correct of " + str(question_number[ses_id - 1]) + " questions\n\n"))
+        self.wfile.write(str.encode("There are " + str(amount_list[ses_id - 1] - question_number[ses_id - 1])))
+        self.wfile.write(str.encode(" more questions\n"))"""
+
+
     def do_GET(self):
         # Parse incoming request url
-        print("GET")
+        #print("GET")   # debug print
         url = urlparse(self.path)
-        print("\n", url, "\n")  # debug print
+        #print("\n", url, "\n")  # debug print
         if url.path == "/hello":
             return self.say_hello(parse_qs(url.query))
         elif url.path == "/newGame":
@@ -149,13 +165,13 @@ class RequestHandler(BaseHTTPRequestHandler):
         """
 
         print("POST")
+        print(questions)
 
         # TODO Parse curl command and get answer and id
         # TODO Add 15 seconds to answer. Hint: request.post(timeout=10)
 
         finish = self.date_time_string()
         finish = finish.split()[4].split(":")[2]
-        #print(finish)
         finish_ = self.log_date_time_string()
         print(finish_)
         print(type(finish_))
@@ -166,12 +182,27 @@ class RequestHandler(BaseHTTPRequestHandler):
             post_data = post_data.decode("ascii")   # decode the data from binary to string
             print(post_data.split("&"))
             post_data = post_data.split("&")        # string is split wrt '&'
-            id = post_data[0].split("=")[1]         # id is split wrt '='
+            id = int(post_data[0].split("=")[1])    # id is split wrt '='
             answer = post_data[1].split("=")[1]     # id is split wrt '='
-            print(id, answer)
+            q_id = int(question_number[id - 1])
+            print(type(id), id, type(q_id), q_id)
+            if len(correct_wrong_ans_list) != len(question_number):
+                correct_wrong_ans_list.append([0, 0])
+            if questions[q_id-1]["correct_answer"] == answer:    # if answer is correct
+                print("2nd if")
+                self.wfile.write(str.encode("2nd if\n"))
+                correct_wrong_ans_list[id-1][0] += 1
+                return self.correct_message(id, q_id)
+            else:
+                print("else")
+                self.wfile.write(str.encode("else"))
+                correct_wrong_ans_list[id-1][1] += 1
+                return self.wrong_message(id)
         except TypeError:
             url = urlparse(self.path)
+            print(url)
             print(parse_qs(url.query))
+            # print(questions)
 
 
 if __name__ == "__main__":
