@@ -78,7 +78,7 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.send_response(200)
         self.end_headers()
         self.wfile.write(str.encode("New Trivia Game started\nSession ID = " + str(session_id_list[-1]) + "\n"))
-        print("New Game Session ID: ", session_id_list[-1])  # debug print, it will be deleted
+        # print("New Game Session ID: ", session_id_list[-1])  # debug print, it will be deleted
 
     def next(self, query):
         session_id = int(query["id"][0])        # Session id retrieved from query
@@ -101,15 +101,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         self.write_answers(question_number[session_id-1])
         self.wfile.write(str.encode("\nYou have 15 seconds to answer!\n"))
         question_number[session_id-1] += 1
-        # TODO Call answer function
         start_ = self.log_date_time_string()    # current time is retrieved
-        finish_second_ = int(self.calculate_last_second(start_.split()[1]))   # finish second is calculated
-        update_second(finish_second_)
-        time.set_finish(int(self.calculate_last_second(start_.split()[1])))
-        print("SET ===========>>>", time.finish)
-        self.wfile.write(str.encode(str(time.finish) + "\n"))
-        finish_seconds = int(self.calculate_last_second(start_.split()[1]))   # finish second is calculated
-        self.wfile.write(str.encode(str(finish_second_)+"\n"))
+        time.set_finish(int(self.calculate_last_second(start_.split()[1])))    # finish time is calculated & set in time
+
 
     def write_answers(self, number):
         """
@@ -129,11 +123,9 @@ class RequestHandler(BaseHTTPRequestHandler):
         :param start_time: start time for asked question. Its format is HH:MM:SS
         :return: Finish second of the question
         """
-        print("DEBUG : ", start_time)   # debug print
         start_time = start_time.split(":")  # time is split. Format --> ["HH", "MM", "SS"]
         start_time = list(map(int, start_time))     # strings are converted to int
         last_second = start_time[-1] + 15   # second is retrieved and added 15 seconds
-        print("DEBUG_2 : ", last_second)
         if last_second > 59:    # control for over 60 seconds
             last_second = last_second - 60
 
@@ -162,9 +154,7 @@ class RequestHandler(BaseHTTPRequestHandler):
 
     def do_GET(self):
         # Parse incoming request url
-        #print("GET")   # debug print
         url = urlparse(self.path)
-        #print("\n", url, "\n")  # debug print
         if url.path == "/newGame":
             return self.new_game(parse_qs(url.query))
             # return self.say_hello(parse_qs(url.query))
@@ -184,35 +174,19 @@ class RequestHandler(BaseHTTPRequestHandler):
         In except part, I handled curl -X POST http://localhost:8080/answer\?id=xx\&answer=xxxx
         """
 
-        #print("POST")
-       # print(questions)
-        #print(question_number)
-        print()
-
-        # TODO Add 15 seconds to answer. Hint: request.post(timeout=10)
-
         finish = self.date_time_string()
         finish = finish.split()[4].split(":")[2]
         finish = int(finish)
-        # self.wfile.write(str.encode(str(finish_seconds) + " " + str(finish) + "\n"))
-        """if finish_second == -1:
-            self.wfile.write(str.encode("You posted an answer before question asked!\n"))
-            return"""
-        print("TIME =====>>>>>>>> ", time.finish, finish)
-        self.wfile.write(str.encode("TIME ====>>>>>>> " + str(time.finish) + " " + str(finish) + "\n"))
-        if finish > time.finish:
+        if finish > time.finish:    # Controls the time limit
             self.wfile.write(str.encode("Too late to answer!!\n"))
-            self.wfile.write(str.encode(str(time.finish) + "\t" + str(finish) + "\n"))
+            # self.wfile.write(str.encode(str(time.finish) + "\t" + str(finish) + "\n"))
             return
-        finish_ = self.log_date_time_string()
-        print(finish_)
-        print(type(finish_))
 
         try:
             content_length = int(self.headers['Content-Length'])  # Gets the size of data
             post_data = self.rfile.read(content_length)  # Gets the data itself
             post_data = post_data.decode("ascii")   # decode the data from binary to string
-            print(post_data.split("&"))
+            # print(post_data.split("&"))
             post_data = post_data.split("&")        # string is split wrt '&'
             id = int(post_data[0].split("=")[1])    # id is split wrt '='
             if id > len(question_number):
@@ -220,18 +194,15 @@ class RequestHandler(BaseHTTPRequestHandler):
                 return
             answer = post_data[1].split("=")[1]     # id is split wrt '='
             q_id = int(question_number[id - 1])
-            print(type(id), id, type(q_id), q_id)
+            # print(type(id), id, type(q_id), q_id)
 
             if len(correct_wrong_ans_list) != len(question_number):
                 correct_wrong_ans_list.append([0, 0])
             if questions[q_id-1]["correct_answer"] == answer:    # if answer is correct
-                print("2nd if")
-                self.wfile.write(str.encode("2nd if\n"))
+                # print("2nd if")
                 correct_wrong_ans_list[id-1][0] += 1
                 return self.correct_message(id, q_id)
             else:
-                print("else")
-                self.wfile.write(str.encode("else"))
                 correct_wrong_ans_list[id-1][1] += 1
                 return self.wrong_message(id)
         except TypeError:
@@ -242,19 +213,15 @@ class RequestHandler(BaseHTTPRequestHandler):
             if id > len(question_number):       # Session ID is controlled
                 self.wfile.write(str.encode("Wrong session ID!!\n"))
                 return
-            print(id, question_number)
+            # print(id, question_number)
             q_id = int(question_number[id - 1])
 
             if len(correct_wrong_ans_list) != len(question_number):
                 correct_wrong_ans_list.append([0, 0])
             if questions[q_id-1]["correct_answer"] == answer:
-                self.wfile.write(str.encode("true"))
-                self.wfile.write(correct_wrong_ans_list)
                 correct_wrong_ans_list[id-1][0] += 1
                 return self.correct_message(id, q_id)
             else:
-                print("else")
-                self.wfile.write(str.encode("else"))
                 correct_wrong_ans_list[id-1][1] += 1
                 return self.wrong_message(id)
 
@@ -264,7 +231,7 @@ if __name__ == "__main__":
     time = Time()
     read_json()
     total_question_num = len(questions)
-    print(total_question_num)
+    # print(total_question_num)
     port = 8080
     print(f'Listening on localhost:{port}')
     server = HTTPServer(('', port), RequestHandler)
