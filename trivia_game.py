@@ -9,12 +9,6 @@ question_number = []
 correct_wrong_ans_list = []
 questions = dict()
 total_question_num = 0
-#finish_seconds = -1
-
-
-def update_second(new_sec):
-    finish_seconds = new_sec
-    return finish_seconds
 
 
 def read_json():
@@ -52,25 +46,18 @@ def create_session_id(amount=10):
 
 
 class Time:
-
+    """
+    Time class is created for keeping finish time
+    finish variable is updating at each question
+    """
     def __init__(self):
-        self.start = -1
         self.finish = -1
-
-    def set_start(self, start):
-        self.start = start
 
     def set_finish(self, finish):
         self.finish = finish
 
 
 class RequestHandler(BaseHTTPRequestHandler):
-    timeout = 10
-    finish_seconds = -1
-
-    """def setup(self):
-        self.timeout = 10
-        self.request.settimeout(10)"""
 
     def new_game(self, query):
         amount = int(query["amount"][0])    # amount info is retrieved from query
@@ -103,7 +90,6 @@ class RequestHandler(BaseHTTPRequestHandler):
         question_number[session_id-1] += 1
         start_ = self.log_date_time_string()    # current time is retrieved
         time.set_finish(int(self.calculate_last_second(start_.split()[1])))    # finish time is calculated & set in time
-
 
     def write_answers(self, number):
         """
@@ -174,19 +160,18 @@ class RequestHandler(BaseHTTPRequestHandler):
         In except part, I handled curl -X POST http://localhost:8080/answer\?id=xx\&answer=xxxx
         """
 
+        # Finish time is retrieved from parsing time
         finish = self.date_time_string()
         finish = finish.split()[4].split(":")[2]
         finish = int(finish)
         if finish > time.finish:    # Controls the time limit
             self.wfile.write(str.encode("Too late to answer!!\n"))
-            # self.wfile.write(str.encode(str(time.finish) + "\t" + str(finish) + "\n"))
             return
 
         try:
             content_length = int(self.headers['Content-Length'])  # Gets the size of data
             post_data = self.rfile.read(content_length)  # Gets the data itself
             post_data = post_data.decode("ascii")   # decode the data from binary to string
-            # print(post_data.split("&"))
             post_data = post_data.split("&")        # string is split wrt '&'
             id = int(post_data[0].split("=")[1])    # id is split wrt '='
             if id > len(question_number):
