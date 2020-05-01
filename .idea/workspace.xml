@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="22c45bb4-9727-47d6-9b5a-51b48cb5001c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/trivia_game.py" beforeDir="false" afterPath="$PROJECT_DIR$/trivia_game.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
       <workItem from="1583921604391" duration="15510000" />
       <workItem from="1584279074287" duration="401000" />
       <workItem from="1584279575596" duration="166000" />
-      <workItem from="1588360269215" duration="253000" />
+      <workItem from="1588360269215" duration="1245000" />
     </task>
     <servers />
   </component>
@@ -120,10 +120,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583877116081" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1583787023198">
+    <state x="184" y="7" key="SettingsEditor" timestamp="1588360915781">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1583787023198" />
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1588360915781" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TriviaGame$trivia_game.coverage" NAME="trivia_game Coverage Results" MODIFIED="1583872139874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
