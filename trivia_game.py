@@ -178,13 +178,11 @@ class RequestHandler(BaseHTTPRequestHandler):
                 self.wfile.write(str.encode("Wrong session ID!!\n"))
                 return
             answer = post_data[1].split("=")[1]     # id is split wrt '='
-            q_id = int(question_number[id - 1])
-            # print(type(id), id, type(q_id), q_id)
+            q_id = int(question_number[id - 1])     # question id is converted to interger
 
             if len(correct_wrong_ans_list) != len(question_number):
                 correct_wrong_ans_list.append([0, 0])
             if questions[q_id-1]["correct_answer"] == answer:    # if answer is correct
-                # print("2nd if")
                 correct_wrong_ans_list[id-1][0] += 1
                 return self.correct_message(id, q_id)
             else:
@@ -198,16 +196,16 @@ class RequestHandler(BaseHTTPRequestHandler):
             if id > len(question_number):       # Session ID is controlled
                 self.wfile.write(str.encode("Wrong session ID!!\n"))
                 return
-            # print(id, question_number)
-            q_id = int(question_number[id - 1])
 
-            if len(correct_wrong_ans_list) != len(question_number):
-                correct_wrong_ans_list.append([0, 0])
-            if questions[q_id-1]["correct_answer"] == answer:
-                correct_wrong_ans_list[id-1][0] += 1
+            q_id = int(question_number[id - 1])     # question id is converted to integer
+
+            if len(correct_wrong_ans_list) != len(question_number):     # If correct-wrong answer counter is not
+                correct_wrong_ans_list.append([0, 0])                   # added to list, add it with [0, 0]
+            if questions[q_id-1]["correct_answer"] == answer:           # If answer is correct
+                correct_wrong_ans_list[id-1][0] += 1                    # correct counter is incremented by 1
                 return self.correct_message(id, q_id)
-            else:
-                correct_wrong_ans_list[id-1][1] += 1
+            else:                                                       # If answer is not correct
+                correct_wrong_ans_list[id-1][1] += 1                    # wrong counter is incremented by 1
                 return self.wrong_message(id)
 
 
@@ -216,10 +214,12 @@ if __name__ == "__main__":
     time = Time()
     read_json()
     total_question_num = len(questions)
-    # print(total_question_num)
     port = 8080
     print(f'Listening on localhost:{port}')
     server = HTTPServer(('', port), RequestHandler)
-    server.serve_forever()
-    # finish_second = -1
-    # server.server_close()
+    try:
+        server.serve_forever()
+    except KeyboardInterrupt:
+        pass
+    server.server_close()
+    print("Server stopped.")
